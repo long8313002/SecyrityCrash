@@ -22,16 +22,16 @@ public class SecyrityCrash {
         defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
     }
 
-    public void setMainThreadFactory(IHandlerExceptionFactory mainThreadFactory) {
-        this.mainThreadFactory = mainThreadFactory;
+    public static void setMainThreadFactory(IHandlerExceptionFactory mainThreadFactory) {
+        instance.mainThreadFactory = mainThreadFactory;
     }
 
-    public void setChildThreadFactory(IHandlerExceptionFactory childThreadFactory) {
-        this.childThreadFactory = childThreadFactory;
+    public static void setChildThreadFactory(IHandlerExceptionFactory childThreadFactory) {
+        instance.childThreadFactory = childThreadFactory;
     }
 
-    public void setOnExceptionCallBack(OnExceptionCallBack onExceptionCallBack) {
-        this.onExceptionCallBack = onExceptionCallBack;
+    public static void setOnExceptionCallBack(OnExceptionCallBack onExceptionCallBack) {
+        instance.onExceptionCallBack = onExceptionCallBack;
     }
 
     public static void install() {
