@@ -1,9 +1,9 @@
     Android全局异常捕获，不退出应用，让应用正常运行下去！
   
-    当App发现异常后，如果程序没有处理，将交给虚拟机进行处理，通常会弹出一个对话框，然后退出应用。但大多数的应用可能对后续流程影响不大，
-    比如分享功能出现。
-  一个问题，真的有必要关闭整个应用吗？屏蔽这个功能，对整体来说不会有太大的影响。或者某个页面的数据出现了逻辑错误，大多数关闭当前页面，
-  用户再重新启动便可以正常使用了。
+    当App发现异常后，如果程序没有处理，将交给虚拟机进行处理，通常会弹出一个对话框，然后退出应用。但大多数的应用可能对后续流程影
+    响不大，比如分享功能出现。
+  一个问题，真的有必要关闭整个应用吗？屏蔽这个功能，对整体来说不会有太大的影响。或者某个页面的数据出现了逻辑错误，大多数关闭当
+  前页面， 用户再重新启动便可以正常使用了。
   
     原理介绍：Looper机制是整个App一直运行下去的关键，就和操作系统一样，通过死循环来实现不退出。在Android App 中ActivityThread的main
     方法会主动为主线程
@@ -67,8 +67,8 @@
         }
 
     }
-    我默认实现了一个处理行为，EndCurrenPagerHandler、IgnoreHandler、KillAppHandler。由工厂IHandlerExceptionFactory构建。事实上我建议
-    大家根据项目定义错误处理。
+    我默认实现了一个处理行为，EndCurrenPagerHandler、IgnoreHandler、KillAppHandler。由工厂IHandlerExceptionFactory构建。事实
+    我建议大家根据项目定义错误处理。
     setMainThreadFactory：主线程错误处理，用户可以自定义主线程处理逻辑
     setChildThreadFactory：子线程错误处理，用户可以自定义主线程处理逻辑
     setOnExceptionCallBack：异常通知，如果想在外部接收异常，可以通过这个回调，如果你想将异常信息上传到服务器。
